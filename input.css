@@ -1,0 +1,736 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.typing-text {
+  font-size: 34px;
+  font-weight: 600;
+  min-width: 280px;
+}
+
+.typing-text span {
+  position: relative;
+}
+
+.typing-text span::before {
+  content: "Student";
+  color: #60a5fa;
+  animation: words 7s infinite;
+}
+
+.typing-text span::after {
+  content: "";
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  border-left: 3px solid rgb(255, 255, 255);
+  right: -8;
+  animation: cursor 0.6s infinite;
+}
+
+@keyframes cursor {
+  to {
+    border-left: 3px solid #464646;
+  }
+}
+
+@keyframes words {
+  0%,
+  20% {
+    content: "Digital Creator";
+  }
+  30%,
+  50% {
+    content: "UI/UX Designer";
+  }
+}
+
+@media (max-width: 1000px) {
+  .home {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 995px) {
+  .home {
+    flex-direction: column;
+    margin: 5rem 4rem;
+  }
+
+  .home .home-content h3 {
+    font-size: 2.5rem;
+  }
+
+  .home-content h1 {
+    font-size: 5rem;
+  }
+
+  .home-img img {
+    width: 70vw;
+    margin-top: 4rem;
+  }
+}
+@media (max-width: 1000px) {
+  .home {
+    gap: 4rem;
+  }
+}
+
+@media (max-width: 995px) {
+  .home {
+    flex-direction: column;
+    margin: 5rem 4rem;
+  }
+
+  .home .home-content h3 {
+    font-size: 2.5rem;
+  }
+
+  .home-content h1 {
+    font-size: 5rem;
+  }
+
+  .home-img img {
+    width: 70vw;
+    margin-top: 4rem;
+  }
+}
+
+/* NAVBAR MENU COK */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar {
+  width: 100%;
+  color: white;
+  position: fixed; /* Tetap di bagian atas layar */
+  display: flex; /* Menjadikan navbar flex container */
+  align-items: center; /* Menjaga konten agar tetap rata secara vertikal */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding: 1px 20px;
+  backdrop-filter: blur(7px); /* Efek blur pada latar belakang */
+  background-color: rgba(55, 125, 211, 0.486); /* Warna biru dengan transparansi */
+}
+
+.nav-links {
+  list-style: none; /* Menghapus bullet dari daftar */
+  display: flex; /* Menggunakan flexbox untuk menata link */
+  justify-content: center; /* Memusatkan tautan dalam nav-links */
+  padding: 0; /* Menghapus padding */
+}
+
+.nav-links li {
+  margin: 0 20px; /* Jarak antar tautan */
+}
+
+.nav-links li a {
+  text-decoration: none; /* Menghapus garis bawah pada tautan */
+  color: white; /* Warna teks putih */
+  font-size: 16px; /* Ukuran font */
+}
+.nav-links li a:hover {
+  color: #60a5fa; /* Warna saat hover */
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.4s;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav {
+    position: absolute;
+    top: 77px;
+    left: 100%; /* Posisi awal di luar layar sebelah kanan */
+    background-color: rgba(14, 53, 100, 0.2); /* Warna biru dengan transparansi */
+    backdrop-filter: blur(10px); /* Efek blur pada latar belakang */
+    width: 100%;
+    height: calc(45vh - 45px); /* Menyesuaikan tinggi layar */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.3s ease, backdrop-filter 0.3s ease; /* Transisi untuk left dan blur */
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+
+  .nav-links li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255); /* Warna teks putih */
+    font-size: 20px;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links li a:hover {
+    color: #60a5fa; /* Warna saat hover */
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: absolute; /* Menempatkan hamburger secara absolut */
+    top: 20px; /* Atur jarak dari atas */
+    right: 30px; /* Atur jarak dari kanan */
+  }
+
+  .hamburger span {
+    height: 3px;
+    width: 25px;
+    background-color: #ffffff;
+    margin: px 0;
+    transition: 0.4s;
+  }
+
+  nav.active {
+    left: 0; /* Menampilkan navbar dengan transisi dari kanan */
+  }
+}
+
+/* Content styling */
+.content {
+  margin-top: 100px;
+  padding: 20px;
+}
+
+/* MEMBUAT SCROLL MENJADI SMOOTH PADA MENU */
+html {
+  scroll-behavior: smooth; /* Aktifkan smooth scroll */
+}
+
+/* Optional: Efek tambahan seperti shadow */
+.btn:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan saat hover */
+}
+
+/* Gaya default teks */
+.text-link {
+  color: #000; /* Warna teks default */
+  text-decoration: none; /* Hapus garis bawah default pada tautan */
+  transition: color 0.3s ease; /* Transisi halus untuk perubahan warna */
+}
+
+.text-link:hover {
+  color: #3498db; /* Warna teks saat hover */
+}
+.rounded-btn {
+  padding: 8px 16px; /* Perkecil padding tombol */
+  font-size: 12px; /* Ukuran font tombol lebih kecil */
+}
+.card {
+  display: flex; /* Menggunakan flexbox */
+  flex-direction: column; /* Membuat arah flex vertikal */
+  align-items: center; /* Memusatkan konten secara horizontal */
+  justify-content: center; /* Memusatkan konten secara vertikal */
+}
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1120px) {
+  :root {
+    --h2-font-size: 1.5rem;
+    --small-font-size: 0.875rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== CARD ===============*/
+.container {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+  padding-block: 5rem;
+}
+
+.card__container {
+  display: grid;
+  row-gap: 3.5rem;
+}
+
+.card__article {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__img {
+  width: 328px;
+  border-radius: 1.5rem;
+}
+
+.card__data {
+  width: 280px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 3%, 0.479);
+  background: linear-gradient(135deg, rgba(61, 100, 112, 0.932), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.card__description {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: 0.25rem;
+}
+
+.card__title {
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  color: var(--title-color);
+  margin-bottom: 0.75rem;
+}
+
+.card__button {
+  text-decoration: none;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  color: var(--first-color);
+}
+
+.card__button:hover {
+  text-decoration: underline;
+}
+
+/* Naming animations in hover */
+.card__article:hover .card__data {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.card__article:hover {
+  animation: remove-overflow 2s forwards;
+}
+
+.card__article:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+
+.card__article:not(:hover) .card__data {
+  animation: remove-data 1s forwards;
+}
+
+/* Card animation */
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(0.5rem);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
+}
+
+/* For large devices */
+@media screen and (min-width: 1100px) {
+  .container {
+    height: 70vh;
+  }
+}
+
+/* BAGIAN BUTTON "PROJECT SAYA!" */
+#project-button {
+  display: inline-block;
+  border-radius: 9999px;
+  background-color: #60a5fa;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#project-button:hover,
+#project-button:focus {
+  opacity: 0.5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.1);
+}
+
+#project-button:active {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(0.95);
+}
+
+/* Initial state: hidden with translate effect */
+.card__img {
+  opacity: 0;
+  transform: translateY(20px); /* Slightly move down */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Class to make the image visible */
+.card__img--visible {
+  opacity: 1;
+  transform: translateY(0); /* Move to original position */
+}
+
+/* TRANSISI MUNCUL PROJECT */
+.card__img {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.card__img--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* BAGIAN SETUP INI */
+.btn {
+  position: relative;
+  color: #81bfc9; /* Warna teks */
+  border: 2px solid #81bfc9; /* Warna border */
+  font-size: 16px;
+  background-color: transparent; /* Warna latar belakang transparan */
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transisi halus untuk semua perubahan */
+  display: inline-block; /* Agar transform bisa diterapkan */
+}
+
+.btn:hover {
+  color: #fff; /* Warna teks saat hover */
+  background-color: #759aa0; /* Ubah warna background saat hover */
+  border-color: #759aa0; /* Border berubah sesuai dengan background */
+  transform: scale(1.1); /* Efek scale */
+}
+
+#setup {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1.1rem;
+  border-radius: 2.5rem;
+  margin: 0.5rem;
+  perspective: 1000px; /* Set perspective for the 3D effect */
+}
+
+/* Hover effect for card */
+#setup:hover .card-inner {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: rotateY(10deg) rotateX(10deg); /* Rotate card on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Tambahkan shadow saat hover */
+  border-radius: 2.5rem;
+  padding: 1.1rem;
+}
+
+/* Image styling */
+.image-setup {
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease; /* Smooth transition for image scaling */
+}
+
+/* Title styling */
+.card-title {
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-size: 30px;
+}
+
+/* Button styling */
+.btn {
+  font-weight: bold;
+  margin-top: 0.6rem;
+  transition: transform 0.2s ease; /* Transisi halus */
+  border-radius: 2.5rem;
+  padding: 10px 20px;
+  margin: 10px;
+}
+/* Card style */
+.card {
+  transition: transform 0.5s ease, box-shadow 0.3s ease; /* Increased duration for smoother animation */
+}
+
+/* Card inner wrapper */
+.card-inner {
+  transition: transform 0.3s ease; /* Smooth transition for inner card */
+  will-change: transform; /* Hint to the browser that this element will change */
+}
+
+/* Gaya untuk Section */
+#layout {
+  display: flex; /* Menggunakan Flexbox untuk layout */
+  flex-wrap: wrap; /* Mengizinkan item untuk membungkus ke baris baru */
+  justify-content: center; /* Menyelaraskan semua item ke tengah */
+  gap: 1rem; /* Jarak antar item */
+}
+
+/* Gaya untuk Kartu */
+.card {
+  flex: 0 0 calc(33.333% - 1rem); /* Mengatur lebar kartu ke 33.333% dengan margin */
+  margin: 0.5rem; /* Jarak antar kartu */
+  max-width: 400px; /* Lebar maksimum kartu */
+}
+
+/* Media Query untuk Mobile */
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 100%; /* Satu kolom pada tampilan mobile */
+  }
+}
+/* Kelas untuk fade-in */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out; /* Durasi dan jenis transisi */
+}
+
+.fade-in.visible {
+  opacity: 1; /* Menjadikan elemen terlihat saat ditambahkan kelas 'visible' */
+}
+
+/* INI BAGIAN HOME */
+
+/* Kelas untuk scale-in */
+.scale-in {
+  transform: scale(0.8); /* Ukuran awal */
+  opacity: 0; /* Opacity awal */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Durasi dan jenis transisi */
+}
+
+.scale-in.visible {
+  transform: scale(1); /* Ukuran normal saat terlihat */
+  opacity: 1; /* Menjadikan elemen terlihat */
+}
+
+/* Kelas untuk slide-in */
+.slide-left {
+  transform: translateX(-50px); /* Mula dari kiri dengan offset */
+  opacity: 0; /* Mula dengan opacity 0 */
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Durasi dan jenis transisi */
+}
+
+.slide-left.visible {
+  transform: translateX(0); /* Kembali ke posisi normal */
+  opacity: 1; /* Menjadi terlihat */
+}
+
+/* Efek hover untuk mengubah warna dan skala */
+a.block:hover {
+  color: #cde3fc83; /* Ganti dengan warna hover yang Anda inginkan */
+  transform: scale(1.1); /* Membesarkan sedikit saat di-hover */
+  transition: color 0.3s ease, transform 0.3s ease; /* Animasi */
+}
+
+/* Efek saat klik (active state) */
+a.block:active {
+  transform: scale(0.95); /* Mengecil sedikit saat di-klik */
+}
+
+/* contact */
+#contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#contact form {
+  position: relative;
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 700px;
+  width: 80%;
+  border-radius: 40px;
+  background: linear-gradient(135deg, rgba(41, 41, 41, 0.226), rgba(51, 59, 66, 0.185));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+#button {
+  display: block; /* Menjadikan elemen block agar memenuhi lebar */
+  width: 100%; /* Lebar penuh */
+  text-align: center; /* Teks berada di tengah */
+  border-radius: 9999px; /* Membuat sudut melingkar penuh */
+  padding: 12px 32px; /* Memberikan jarak di dalam elemen */
+  font-size: 16px; /* Ukuran teks */
+  font-weight: 600; /* Ketebalan teks */
+  color: #ffffff; /* Warna teks */
+  background-color: #8b8b8b; /* Warna latar belakang */
+  transition: all 0.5s; /* Animasi untuk hover */
+}
+
+#button:hover {
+  opacity: 0.8; /* Transparansi saat hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan saat hover */
+  background-color: #60a5fa;
+}
+
+/* footer */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+footer {
+  background: linear-gradient(135deg, rgba(41, 41, 41, 0.226), rgba(51, 59, 66, 0.185));
+}
+.footerContainer {
+  width: 100%;
+  padding: 70px 30px 20px;
+}
+.socialIcons {
+  display: flex;
+  justify-content: center;
+}
+.socialIcons a {
+  text-decoration: none;
+  padding: 7px;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, rgba(41, 41, 41, 0.356), rgba(51, 59, 66, 0.185));
+  margin: 10px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+.socialIcons a i {
+  font-size: 2em;
+  color: black;
+  opacity: 0, 9;
+}
+/* Hover affect on social media icon */
+.socialIcons a:hover {
+  background-color: #111;
+  transition: 0.5s;
+}
+.socialIcons a:hover i {
+  color: white;
+  transition: 0.5s;
+}
+.footerNav {
+  margin: 30px 0;
+}
+.footerNav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+.footerNav ul li a {
+  margin: 20px;
+  text-decoration: none;
+  font-size: 1.3em;
+  opacity: 0.7;
+  transition: 0.5s;
+}
+.footerNav ul li a:hover {
+  opacity: 1;
+}
+.footerBottom {
+  background: linear-gradient(135deg, rgba(41, 41, 41, 0.356), rgba(51, 59, 66, 0.185));
+  padding: 20px;
+  text-align: center;
+}
+.designer {
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 0px 5px;
+}
+.copyright {
+  font-weight: bold;
+}
+@media (max-width: 700px) {
+  .footerNav ul {
+    flex-direction: column;
+  }
+  .footerNav ul li {
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+  }
+  .socialIcons a {
+    padding: 8px;
+    margin: 4px;
+  }
+}
